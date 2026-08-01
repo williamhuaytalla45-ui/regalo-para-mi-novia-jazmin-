@@ -403,16 +403,26 @@ setTimeout(typeWriter,35);
 
 }
 
-envelope.onclick=()=>{
+envelope.onclick = () => {
 
-envelope.classList.add("open");
+    envelope.classList.add("open");
 
-setTimeout(typeWriter,1200);
+    setTimeout(typeWriter,1200);
 
-createHearts();
+    createHearts();
+
+    // Después de abrir el sobre
+    setTimeout(() => {
+
+        envelope.style.overflow = "visible";
+        envelope.style.background = "transparent";
+        envelope.style.boxShadow = "none";
+
+        document.querySelector(".heart").style.display = "none";
+
+    },900);
 
 };
-
 function createHearts(){
 
 setInterval(()=>{
