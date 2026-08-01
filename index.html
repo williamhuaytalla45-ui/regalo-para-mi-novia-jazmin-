@@ -194,39 +194,42 @@ top:0;
 }
 
 .letter{
-  
-position:absolute;
-  
-left:15px;
-  
-top:80px;
-  
-width:290px;
-  
-height:180px;
-  
-padding:25px;
-  
-border-radius:12px;
-  
-background:white;
-  
-overflow-y:auto;
-  
-transition:1.2s ease;
-  
-z-index:0;
-  
-  }
 
+position:absolute;
+
+left:15px;
+
+top:200px;
+
+width:290px;
+
+height:320px;
+
+padding:25px;
+
+background:white;
+
+border-radius:12px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+transform:translateY(0);
+
+transition:all 1s ease;
+
+z-index:1;
+
+overflow-y:auto;
+
+}
 
 #envelope.open .letter{
 
-transform:translateY(-170px);
+transform:translateY(-230px);
 
 z-index:20;
 
-  }
+}
 @keyframes floatHeart{
 0%{
 transform:translateY(0) scale(1);
@@ -370,9 +373,9 @@ Rafael ❤️
 
 <script>
 
-const envelope=document.getElementById("envelope");
-
-const message=document.getElementBy
+const envelope = document.getElementById("envelope");
+  
+const message = document.getElementById("message");
 const text=`Mi hermosa Jazmín ❤️
 
 Hoy quiero recordarte lo inmensamente feliz que me haces.
@@ -451,17 +454,17 @@ setTimeout(()=>heart.remove(),7000);
 
 for(let s=0;s<120;s++){
 
-const star=document.createElement("div");
+    const star=document.createElement("div");
 
-star.className="star";
+    star.className="star";
 
-star.style.left=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
 
-star.style.top=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
 
-star.style.animationDelay=Math.random()*2+"s";
+    star.style.animationDelay=Math.random()*2+"s";
 
-document.getElementById("stars").appendChild(star);
+    document.getElementById("stars").appendChild(star);
 
 }
 
