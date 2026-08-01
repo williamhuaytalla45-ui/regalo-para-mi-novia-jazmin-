@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Jazmín ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(180deg,#ff4f91,#8e2de2,#12001d);
+
+font-family:Poppins,sans-serif;
+
+}
+
+.stars{
+
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+
+}
+
+.star{
+
+position:absolute;
+
+width:3px;
+
+height:3px;
+
+background:white;
+
+border-radius:50%;
+
+animation:blink 2s infinite;
+
+}
+
+@keyframes blink{
+
+0%{opacity:.2;}
+
+50%{opacity:1;}
+
+100%{opacity:.2;}
+
+}
+
+.container{
+
+position:relative;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+}
+
+#envelope{
+
+position:relative;
+
+width:320px;
+
+height:220px;
+
+background:#f7d8c6;
+
+border-radius:8px;
+
+cursor:pointer;
+
+transition:.8s;
+
+box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+#envelope:before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+border-left:160px solid transparent;
+
+border-right:160px solid transparent;
+
+border-top:110px solid #e9bea5;
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:5;
+
+}
+
+#envelope.open:before{
+
+transform:rotateX(180deg);
+
+}
+
+.heart{
+
+position:absolute;
+
+top:90px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:50px;
+
+height:50px;
+
+background:#ff2d75;
+
+transform-origin:center;
+
+transform:translateX(-50%) rotate(45deg);
+
+z-index:10;
+
+transition:.5s;
+
+box-shadow:0 0 20px #ff2d75;
+
+}
+
+.heart:before,
+
+.heart:after{
+
+content:"";
+
+position:absolute;
+
+width:50px;
+
+height:50px;
+
+background:#ff2d75;
+
+border-radius:50%;
+
+}
+
+.heart:before{
+
+top:-25px;
+
+left:0;
+
+}
+
+.heart:after{
+
+left:-25px;
+
+top:0;
+
+}
+
+.letter{
+
+position:absolute;
+
+width:290px;
+
+height:400px;
+
+background:white;
+
+left:15px;
+
+top:10px;
+
+border-radius:12px;
+
+padding:25px;
+
+transform:translateY(0);
+
+transition:1.2s;
+
+z-index:1;
+
+overflow:auto;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+}
+
+#envelope.open .letter{
+
+transform:translateY(-300px);
+
+}
+@keyframes floatHeart{
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+100%{
+transform:translateY(-900px) scale(1.8);
+opacity:0;
+}
+}
+
+.floating-heart{
+
+position:absolute;
+
+bottom:-50px;
+
+font-size:22px;
+
+animation:floatHeart linear forwards;
+
+pointer-events:none;
+
+}
+
+h1{
+
+color:white;
+
+font-family:"Great Vibes",cursive;
+
+font-size:55px;
+
+margin-bottom:35px;
+
+text-shadow:0 0 15px rgba(255,255,255,.8);
+
+}
+
+h2{
+
+text-align:center;
+
+font-family:"Great Vibes",cursive;
+
+font-size:42px;
+
+color:#ff2d75;
+
+margin-bottom:20px;
+
+}
+
+#message{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#444;
+
+white-space:pre-line;
+
+}
+
+.signature{
+
+margin-top:30px;
+
+text-align:right;
+
+font-size:24px;
+
+font-family:"Great Vibes",cursive;
+
+color:#ff2d75;
+
+}
+
+.tap{
+
+margin-top:25px;
+
+color:white;
+
+animation:pulse 1.5s infinite;
+
+font-size:18px;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+
+<h1>Para Jazmín ❤️</h1>
+
+<div id="envelope">
+
+<div class="heart"></div>
+
+<div class="letter">
+
+<h2>Mi amor...</h2>
+
+<p id="message"></p>
+
+<div class="signature">
+
+Con todo mi amor,<br>
+
+Rafael ❤️
+
+</div>
+
+</div>
+
+</div>
+
+<div class="tap">
+
+💌 Toca el corazón...
+
+</div>
+
+</div>
+
+<script>
+
+const envelope=document.getElementById("envelope");
+
+const message=document.getElementBy
+const text=`Mi hermosa Jazmín ❤️
+
+Hoy quiero recordarte lo inmensamente feliz que me haces.
+
+Aunque llevamos casi un mes juntos, siento que mi corazón te conoce desde mucho antes.
+
+Eres el amor de mi vida, la mujer que llegó para cambiar mi mundo y llenarlo de felicidad.
+
+No hay un solo día en el que no piense en ti. Cada mensaje tuyo, cada llamada y cada sonrisa hacen que mi corazón lata más fuerte.
+
+Quiero que sepas que haría hasta lo imposible por verte feliz, porque eres la indicada para mi corazón.
+
+Prometo cuidarte, respetarte, apoyarte y amarte cada día de mi vida.
+
+La distancia no puede con lo que siento por ti. Al contrario, hace que cada momento contigo sea aún más especial.
+
+Gracias por existir, por llegar a mi vida y por enseñarme lo bonito que es amar de verdad.
+
+Espero que este sea solo el comienzo de una historia que dure para siempre.
+
+Feliz Día de la Novia, mi princesa.
+
+Te amo muchísimo, Jazmín.
+
+Con todo mi corazón...
+
+Rafael ❤️`;
+
+let i=0;
+
+function typeWriter(){
+
+if(i<text.length){
+
+message.innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,35);
+
+}
+
+}
+
+envelope.onclick=()=>{
+
+envelope.classList.add("open");
+
+setTimeout(typeWriter,1200);
+
+createHearts();
+
+};
+
+function createHearts(){
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.className="floating-heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(3+Math.random()*4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),7000);
+
+},250);
+
+}
+
+for(let s=0;s<120;s++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*2+"s";
+
+document.getElementById("stars").appendChild(star);
+
+}
+
+</script>
+
+</body>
+
+</html>
