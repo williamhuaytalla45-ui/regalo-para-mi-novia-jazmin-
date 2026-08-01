@@ -196,7 +196,7 @@ top:0;
 .letter{
     position:absolute;
     left:15px;
-    top:35px;
+    top:200px;
     width:290px;
     height:320px;
     background:white;
@@ -210,7 +210,7 @@ top:0;
 }
   
 #envelope.open .letter{
-    transform:translateY(-40px);
+    transform:translateY(-260px);
     z-index:30;
 }
 @keyframes floatHeart{
@@ -403,24 +403,18 @@ setTimeout(typeWriter,35);
 
 }
 
-envelope.onclick = () => {
+envelope.onclick=()=>{
 
     envelope.classList.add("open");
+
+    setTimeout(()=>{
+        document.querySelector(".heart").style.display="none";
+        document.querySelector("#envelope:before");
+    },600);
 
     setTimeout(typeWriter,1200);
 
     createHearts();
-
-    // Después de abrir el sobre
-    setTimeout(() => {
-
-        envelope.style.overflow = "visible";
-        envelope.style.background = "transparent";
-        envelope.style.boxShadow = "none";
-
-        document.querySelector(".heart").style.display = "none";
-
-    },900);
 
 };
 function createHearts(){
